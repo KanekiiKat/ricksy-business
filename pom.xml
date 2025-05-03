@@ -59,7 +59,7 @@
         <archive>
           <manifest>
             <addClasspath>true</addClasspath>
-            <mainClass>edu.estatuas.Calentador</mainClass>
+            <mainClass>edu.estatuas.RicksyBusiness</mainClass>
           </manifest>
           <manifestEntries>
             <url>${project.url}</url>
