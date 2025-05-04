@@ -4,7 +4,8 @@ public class CreditCard {
     
     private String owner;
     private String number;
-    private double credit;
+    private double credit = 3000d;
+    private final String SYMBOL = "EZI";
 
     public CreditCard(String owner, String number) {
         this.owner = owner;
@@ -13,10 +14,9 @@ public class CreditCard {
 
 
 
-    public boolean pay(double credit){
-        double precio = 250.0;
-        if (credit >= precio){
-            this.credit = credit - precio;
+    public boolean pay(double precio){
+        if (this.credit >= precio){
+            this.credit = this.credit - precio;
             return true;    
         } else {
             return false;
@@ -35,7 +35,7 @@ public class CreditCard {
         this.owner = owner;
     }
 
-    public String getNumber() {
+    public String number() {
         return number;
     }
 
