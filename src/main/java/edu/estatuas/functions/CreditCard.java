@@ -43,7 +43,7 @@ public class CreditCard {
         this.number = number;
     }
 
-    public double getCredit() {
+    public double credit() {
         return credit;
     }
 

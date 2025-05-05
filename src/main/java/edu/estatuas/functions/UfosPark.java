@@ -7,7 +7,7 @@ public class UfosPark {
 
 
     private Double fee = 500d;
-    private HashMap<String, String> flota;
+    private HashMap<String, String> flota = new HashMap<>();
 
 
 
@@ -23,22 +23,26 @@ public class UfosPark {
         for (String numberInFlota : flota.values() ){
             if (card.number() != numberInFlota){
                 if (card.pay(fee)){
-                    for (String ufo : flota.keySet()){
-                        flota.replace(ufo, card.number());
-                    }
+                    for (String ufo : flota.keySet())
+                        flota.replace( ufo, null, card.number());
+                        break;
                 }
             }
         }
     }
 
     public String getUfoOf(String number){
-        for (String ufoInFlota : flota.keySet() ){
-            if (flota.values().contains(number)){
-                return ufoInFlota;
+        String ufo = "";
+        for (Map.Entry<String, String> flota : flota.entrySet()){
+            if (flota.getValue().equals(number)){
+                return flota.getKey();
             } else {
-                return "Null";
+                ufo = "Null";
+                break;
             }
+            
         }
-    }
+        return ufo;
+    } 
 
 }
