@@ -20,24 +20,23 @@ public class UfosPark {
 
     public void dispatch(CreditCard card){
 
-        for (String numberInFlota : flota.values() ){
-            if (card.number() != numberInFlota){
-                if (card.pay(fee)){
-                    for (String ufo : flota.keySet())
-                        flota.replace( ufo, null, card.number());
-                        break;
-                }
+        for (Map.Entry<String, String> ovni : flota.entrySet()){
+            if (card.number() != ovni.getValue() && card.pay(fee)){
+                for (String ufo : flota.keySet())
+                    if (ovni.getValue() == null)
+                    flota.replace( ufo, null , card.number());
+                    break;
             }
         }
     }
 
     public String getUfoOf(String number){
         String ufo = "";
-        for (Map.Entry<String, String> flota : flota.entrySet()){
-            if (flota.getValue().equals(number)){
-                return flota.getKey();
+        for (Map.Entry<String, String> ovni : flota.entrySet()){
+            if (flota.containsValue(number)){
+                return ovni.getKey();
             } else {
-                ufo = "Null";
+                ufo = "null";
                 break;
             }
             
