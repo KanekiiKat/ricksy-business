@@ -2,6 +2,7 @@ package edu.estatuas.functions;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class UfosPark {
 
@@ -19,9 +20,9 @@ public class UfosPark {
     }
 
     public void dispatch(CreditCard card){
-        if (!flota.values().contains(card.number()) && card.pay(fee)){
+        if (!flota.values().contains(card.number()) ){
             for (Map.Entry<String, String> ovni : flota.entrySet()){
-                    if (ovni.getValue() == null){
+                    if (ovni.getValue() == null && card.pay(fee)){
                         ovni.setValue(card.number());
                         break;
                         
@@ -39,4 +40,11 @@ public class UfosPark {
         return "null";
     } 
 
+    @Override
+    public String toString(){
+
+        Set<String> ovnis = flota.keySet();
+        return "" + ovnis;
+    
+    }
 }
