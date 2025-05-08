@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class UfosPark {
+public class UfosPark implements GuestDispatcher {
 
 
     private Double fee = 500d;
@@ -19,6 +19,7 @@ public class UfosPark {
         flota.putIfAbsent(ufoID, null);
     }
 
+    @Override
     public void dispatch(CreditCard card){
         if (!flota.values().contains(card.number()) ){
             for (Map.Entry<String, String> ovni : flota.entrySet()){

@@ -1,6 +1,6 @@
 package edu.estatuas.functions;
 
-public class CrystalExpender {
+public class CrystalExpender implements GuestDispatcher{
 
     int stock;
     double itemCost;
@@ -16,7 +16,7 @@ public class CrystalExpender {
         return this.stock;
     }
 
-
+    @Override
     public void dispatch(CreditCard card){
 
         if (this.stock > 0 && card.pay(this.itemCost)){
