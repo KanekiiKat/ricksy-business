@@ -1,5 +1,6 @@
 package edu.estatuas.functions;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -48,4 +49,13 @@ public class UfosPark implements GuestDispatcher {
         return "" + ovnis;
     
     }
+
+        public boolean containsCard(String cardNumber) {
+        return this.flota.containsValue(cardNumber);
+    }
+
+    Collection<String> cardNumbers() {
+        return this.flota.values();
+    }
+
 }
