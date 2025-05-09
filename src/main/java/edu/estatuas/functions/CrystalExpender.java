@@ -2,8 +2,8 @@ package edu.estatuas.functions;
 
 public class CrystalExpender implements GuestDispatcher{
 
-    int stock;
-    double itemCost;
+    private int stock = 0;
+    private double itemCost = 0d;
 
     public CrystalExpender(int stock, double itemCost){
         this.stock = stock;
@@ -20,7 +20,7 @@ public class CrystalExpender implements GuestDispatcher{
     public void dispatch(CreditCard card){
 
         if (this.stock > 0 && card.pay(this.itemCost)){
-            this.stock = this.stock - 1;
+            this.stock--;
         }
         
     }

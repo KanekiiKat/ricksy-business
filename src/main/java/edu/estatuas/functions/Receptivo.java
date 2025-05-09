@@ -2,9 +2,10 @@ package edu.estatuas.functions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Receptivo {
-    private static Receptivo instancia = null;
+    private static Optional<Receptivo> instancia = Optional.empty();
     private final List<GuestDispatcher> observers = new ArrayList();
     
 
@@ -12,10 +13,10 @@ public class Receptivo {
     private  Receptivo(){}
 
     public static Receptivo getReceptivo(){
-        if (instancia == null){
-            instancia = new Receptivo(); 
+        if (instancia.isEmpty()){
+            instancia = Optional.of(new Receptivo()); 
         }
-        return instancia;
+        return instancia.get();
     }
 
     public void registra(GuestDispatcher registro){

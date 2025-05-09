@@ -3,13 +3,12 @@ package edu.estatuas.functions;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class UfosPark implements GuestDispatcher {
 
 
     private Double fee = 500d;
-    private HashMap<String, String> flota = new HashMap<>();
+    private final HashMap<String, String> flota = new HashMap<>();
 
 
 
@@ -27,7 +26,6 @@ public class UfosPark implements GuestDispatcher {
                     if (ovni.getValue() == null && card.pay(fee)){
                         ovni.setValue(card.number());
                         break;
-                        
                 }
             }
         }
@@ -39,14 +37,13 @@ public class UfosPark implements GuestDispatcher {
                 return ovni.getKey();
             }
         }
-        return "null";
+        return "";
     } 
 
     @Override
     public String toString(){
 
-        Set<String> ovnis = flota.keySet();
-        return "" + ovnis;
+        return flota.keySet().toString();
     
     }
 

@@ -56,7 +56,7 @@ public class CreditCard {
     public String toString() {
         return "Owner: " + this.owner + "\n" +
                "Number: " + this.number + "\n" +
-               "Credit: " + this.credit;
+               "Credit: " + this.credit + this.SYMBOL;
     }
 
 
